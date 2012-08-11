@@ -1,9 +1,13 @@
-Tuitor::Application.routes.draw do
+Tuitor::Application.routes.draw do  
+
   
+  match "registro", to: "usuarios#new"
 
-  get "paginas_estaticas/ayuda"
+  match "ayuda", to: "paginas_estaticas#ayuda"  
 
-  get "paginas_estaticas/contacto"
+  match "/contacto",to: "paginas_estaticas#contacto"
+
+  match "about", to: "paginas_estaticas#about"
 
   root to: "paginas_estaticas#home"
 
