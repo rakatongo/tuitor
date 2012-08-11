@@ -1,4 +1,12 @@
 Tuitor::Application.routes.draw do
+  
+
+  get "paginas_estaticas/ayuda"
+
+  get "paginas_estaticas/contacto"
+
+  root to: "paginas_estaticas#home"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
