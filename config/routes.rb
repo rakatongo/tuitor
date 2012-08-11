@@ -1,5 +1,5 @@
 Tuitor::Application.routes.draw do  
-
+  resources :usuarios
   
   match "registro", to: "usuarios#new"
 
