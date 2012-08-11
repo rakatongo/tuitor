@@ -200,6 +200,9 @@ es-AR:
   activemodel:
     errors:
       <<: *errors
-  activerecord:
+  activerecord:    
     errors:
+      attributes:
+        usuario:
+          name: "Nombre"
       <<: *errors

@@ -1,14 +1,21 @@
 Tuitor::Application.routes.draw do  
   resources :usuarios
+  #resources :sessions, only:[:new, :create, :destroy]
+
   
+  #Sessions Controller
+  match "login", to: 'sessions#new', via: "post"
+  match "logout", to: 'sessions#destroy', via: :delete
+
+  # USUARIOS CONTROLLER
   match "registro", to: "usuarios#new"
 
-  match "ayuda", to: "paginas_estaticas#ayuda"  
-
-  match "/contacto",to: "paginas_estaticas#contacto"
-
+  #Paginas Estaticas CONTROLLER
+  match "ayuda", to: "paginas_estaticas#ayuda"
+  match "contacto",to: "paginas_estaticas#contacto"
   match "about", to: "paginas_estaticas#about"
 
+  #ROOT
   root to: "paginas_estaticas#home"
 
   # The priority is based upon order of creation:

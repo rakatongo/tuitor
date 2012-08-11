@@ -6,10 +6,11 @@ class UsuariosController < ApplicationController
   def show
   	@usuario = Usuario.find(params[:id])
   end
-  def create
-  	flash[:success] = "Bienvenido al Tuitor!"
+  def create  	
   	@usuario = Usuario.new(params[:usuario])
   	if @usuario.save
+      login @usuario
+  		flash[:success] = "Bienvenido al Tuitor!"
   		redirect_to @usuario
   	else
   		render 'new'
