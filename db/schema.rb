@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120812012421) do
+ActiveRecord::Schema.define(:version => 20120812014932) do
+
+  create_table "tuits", :force => true do |t|
+    t.string   "contenido"
+    t.integer  "usuario_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "tuits", ["usuario_id", "created_at"], :name => "index_tuits_on_usuario_id_and_created_at"
 
   create_table "usuarios", :force => true do |t|
     t.string   "name"

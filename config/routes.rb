@@ -1,5 +1,6 @@
 Tuitor::Application.routes.draw do  
   resources :usuarios, path_names: {:edit => 'editar'}
+  resources :tuits, only: [:create, :destroy]
   #resources :sessions, only:[:new, :create, :destroy], 
   #          path_names: { :new => 'login', :destroy => 'logout'}
 

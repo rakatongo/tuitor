@@ -1,0 +1,9 @@
+%li
+	%span.content
+		= tuit.contenido
+	%span.timestamp
+		Posteado
+		= time_ago_in_words(tuit.created_at)
+		atras.
+	- if current_usuario?(tuit.usuario)
+		= link_to "Borrar", tuit, method: :delete, title: tuit.contenido, data: { confirm: "Estas seguro?"}

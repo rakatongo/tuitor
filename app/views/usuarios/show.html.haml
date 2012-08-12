@@ -5,4 +5,11 @@
 			%h1
 				= gravatar_for @usuario
 				= @usuario.name
-				
+	.span8
+		- if @usuario.tuits.any?
+			%h3
+				= @usuario.tuits.count
+				Tuits
+			%ol.microposts
+				= render @tuits	
+			= will_paginate @tuits		

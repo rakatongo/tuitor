@@ -13,6 +13,7 @@ class UsuariosController < ApplicationController
 
   def show
   	@usuario = Usuario.find(params[:id])
+    @tuits = @usuario.tuits.paginate(page: params[:page])
   end
   def create  	
   	@usuario = Usuario.new(params[:usuario])
@@ -47,13 +48,7 @@ class UsuariosController < ApplicationController
   end
 
   private
-  def user_logeado
-    unless logueado?
-      store_location
-      redirect_to login_path, notice: "Por favor logueate." 
-    end    
-  end
-
+  
   def user_correcto
     @usuario = Usuario.find(params[:id])
     redirect_to root_path unless current_usuario?(@usuario)

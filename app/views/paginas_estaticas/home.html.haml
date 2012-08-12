@@ -1,7 +1,18 @@
 - provide(:titulo, "Index")
-.center.hero-unit
-	%h1 Bienvenido al tuitor
-	%h2 		
-		Pagina principal de mi aplicacion
-	= link_to "Registrate!", registro_path , class: "btn btn-large btn-primary"
-= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org'
+- if logueado?
+	.row
+		%aside.span4
+			%section
+				= render 'shared/user_info'
+			%section
+				= render 'shared/tuits_form'
+		.span6
+			%h3 Tuiters Feed
+			= render 'shared/feed'
+- else
+	.center.hero-unit
+		%h1 Bienvenido al tuitor
+		%h2 		
+			Pagina principal de mi aplicacion
+		= link_to "Registrate!", registro_path , class: "btn btn-large btn-primary"
+	= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org'

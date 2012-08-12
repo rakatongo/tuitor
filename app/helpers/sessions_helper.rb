@@ -16,6 +16,14 @@ module SessionsHelper
 		usuario == current_usuario
 	end
 
+	def user_logeado
+	    unless logueado?
+    		store_location
+	    	redirect_to login_path, notice: "Por favor logueate." 
+		end    
+ 	end
+
+
 	def logueado?
 		!current_usuario.nil?
 	end
