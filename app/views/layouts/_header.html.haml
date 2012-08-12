@@ -7,14 +7,14 @@
           %li= link_to "Home", root_path
           %li= link_to "Ayuda", ayuda_path
           -if logueado?
-            %li= link_to "Usuarios", '#'
+            %li= link_to "Usuarios", usuarios_path
             %li#fat-menu.dropdown
               %a{class: 'dropdown-toggle', "data-toggle" => 'dropdown', href: '#'}
                 Cuenta
                 %b{class: 'caret'}
               %ul.dropdown-menu
                 %li= link_to "Perfil", current_usuario
-                %li= link_to "Configuracion", '#'
+                %li= link_to "Configuracion", edit_usuario_path(current_usuario)
                 %li.divider
                 %li= link_to "Log out!", logout_path, method: "delete"	
           - else

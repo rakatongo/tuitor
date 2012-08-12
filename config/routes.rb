@@ -1,10 +1,12 @@
 Tuitor::Application.routes.draw do  
-  resources :usuarios
-  #resources :sessions, only:[:new, :create, :destroy]
+  resources :usuarios, path_names: {:edit => 'editar'}
+  #resources :sessions, only:[:new, :create, :destroy], 
+  #          path_names: { :new => 'login', :destroy => 'logout'}
 
   
   #Sessions Controller
-  match "login", to: 'sessions#new', via: "post"
+  match "login", to: 'sessions#new', via: :get
+  match "login", to: 'sessions#create', via: :post
   match "logout", to: 'sessions#destroy', via: :delete
 
   # USUARIOS CONTROLLER

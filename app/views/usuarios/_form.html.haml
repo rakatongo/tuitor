@@ -1,0 +1,20 @@
+.row
+	.span6.offset3
+		= form_for @usuario do |f|
+			= render 'shared/errores_msg', object: f.object
+			= f.label :name, "Nombre"
+			= f.text_field :name
+			%br
+			= f.label :email
+			= f.text_field :email
+			%br
+			= f.label :password, "Password"
+			= f.password_field :password
+			%br
+			= f.label :password_confirmation, "Confirmacion"
+			= f.password_field :password_confirmation
+			%br
+			- if @usuario.new_record?
+				= f.submit "Crear cuenta", class: "btn btn-large btn-primary"
+			- else
+				= f.submit "Editar cuenta", class: "btn btn-large btn-primary"

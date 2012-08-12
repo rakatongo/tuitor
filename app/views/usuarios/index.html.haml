@@ -1,0 +1,7 @@
+- provide(:titulo, "Usuarios")
+%h1 Usuarios:
+= will_paginate
+%ul.users
+	- @usuarios.each do |usuario|
+		= render usuario
+= will_paginate

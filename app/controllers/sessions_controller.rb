@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 		user = Usuario.find_by_email(params[:session][:email])
 		if user && user.authenticate(params[:session][:password])
 			login user
-			redirect_to root_path
+			redirect_back_or user
 		else
 			flash.now[:error] = "Email o contrasenia invalida"
 			render 'new'
